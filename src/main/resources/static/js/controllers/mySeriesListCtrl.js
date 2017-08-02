@@ -58,7 +58,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
     	  	  data: { login : idLogin , password : idSenha}	
     	  	}).then(function successCallback(response) {
     	  		if(response.data.nome == null){
-    	  			alert("Email ou senha incorretos");
+    	  			alert("E-mail e senha incorretos ou usário não cadastrado");
     	  		}else{
     	  			$scope.userLogado = response.data;
     	  			$scope.fillSeries();
@@ -86,7 +86,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
     	  	  method: 'POST',
     	  	  url: 'https://ctrlseries.herokuapp.com/cliente/perfil/' + $scope.userLogado.id,
     	  	  data: serie
-    	  	  console.log("Série adicionada no seu perfil");
+    	  	  alert("Série adicionada no seu perfil");
     	  	}).then(function successCallback(response) {
     	  	  }, function errorCallback(response) {
     	  		 console.log("Erro no perfil");
@@ -98,7 +98,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  	  method: 'POST',
   	  	  url: 'https://ctrlseries.herokuapp.com/cliente/watchlist/' + $scope.userLogado.id,
   	  	  data: serie
-  	  	  console.log("Série adicionada em sua watchlist");
+  	  	  alert("Série adicionada em sua watchlist");
   	  	}).then(function successCallback(response) {
   	  	  }, function errorCallback(response) {
   	  		 console.log("Erro na watchlist");
