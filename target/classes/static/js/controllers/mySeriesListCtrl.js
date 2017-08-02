@@ -58,13 +58,14 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
     	  	  data: { login : idLogin , password : idSenha}	
     	  	}).then(function successCallback(response) {
     	  		if(response.data.nome == null){
-    	  			alert("E-mail e senha incorretos ou usário não cadastrado");
+    	  			alert("Email ou senha incorretos");
     	  		}else{
     	  			$scope.userLogado = response.data;
     	  			$scope.fillSeries();
+    	  			alert("Bem vindo " + response.data.nome + " :D");
     	  		}
     	  	  }, function errorCallback(response) {
-    	  		 console.log("Ocorreu um erro");
+    	  		 console.log("Deu erro");
     	  	  });
   	};
   	
@@ -77,7 +78,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  		$scope.autenticarCliente(idLogin,idSenha);
   	  		alert("Cliente cadastrado com sucesso");
   	  	  }, function errorCallback(response) {
-  	  		 console.log("Ocorreu um erro");
+  	  		 console.log("Deu erro");
   	  	  });
   	};
   	
@@ -86,10 +87,9 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
     	  	  method: 'POST',
     	  	  url: 'https://ctrlseries.herokuapp.com/cliente/perfil/' + $scope.userLogado.id,
     	  	  data: serie
-    	  	  alert("Série adicionada no seu perfil");
     	  	}).then(function successCallback(response) {
     	  	  }, function errorCallback(response) {
-    	  		 console.log("Erro no perfil");
+    	  		 console.log("Deu erro no perfil");
     	  	  });
   	}
   	
@@ -98,10 +98,9 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  	  method: 'POST',
   	  	  url: 'https://ctrlseries.herokuapp.com/cliente/watchlist/' + $scope.userLogado.id,
   	  	  data: serie
-  	  	  alert("Série adicionada em sua watchlist");
   	  	}).then(function successCallback(response) {
   	  	  }, function errorCallback(response) {
-  	  		 console.log("Erro na watchlist");
+  	  		 console.log("Deu erro na watchlist");
   	  	  });
 
   	}
@@ -125,7 +124,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  		  + $scope.userLogado.id + "/" + serie.imdbID,
   	  	}).then(function successCallback(response) {
   	  	  }, function errorCallback(response) {
-  	  		 console.log("Erro na remocao do perfil");
+  	  		 console.log("Deu erro na remocao do perfil");
   	  	  });
 
   	}
@@ -143,13 +142,13 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 	$scope.addToWatchlist = function(serie){
 		nomeserie = $scope.convertToAcceptAtt(serie);
 		if(contains($scope.mySeries,nomeserie) != -1){
-			alert("Série já está no seu perfil");
+			alert("Você não pode adicionar essa série na sua watchlist pois ela já está no seu perfil");
 		}else{
 			if(contains($scope.watchlist,nomeserie) == -1){
 				$scope.watchlist.push(nomeserie);
 				$scope.salvarNaWatchList(nomeserie);
 			}else{
-				alert("Você já possui esta série em sua Watchlist!");
+				alert("Essa série já esta na sua Watchlist!");
 			};
 		};
 		
