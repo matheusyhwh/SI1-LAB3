@@ -100,7 +100,6 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  	  url: 'https://ctrlseries.herokuapp.com/cliente/watchlist/' + $scope.userLogado.id,
   	  	  data: serie
   	  	}).then(function successCallback(response) {
-  	  		alert("Serie salva na sua watchlist");
   	  	  }, function errorCallback(response) {
   	  		 console.log("Deu erro na watchlist");
   	  	  });
