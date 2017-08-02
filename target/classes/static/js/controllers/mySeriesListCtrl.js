@@ -59,14 +59,14 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
     	  	  data: { login : idLogin , password : idSenha}	
     	  	}).then(function successCallback(response) {
     	  		if(response.data.nome == null){
-    	  			alert("Email ou senha incorretos");
+    	  			alert("Email ou senha incorretos. Certifique-se de que o usuario esteja cadastrado.");
     	  		}else{
     	  			$scope.userLogado = response.data;
     	  			$scope.fillSeries();
     	  			alert("Bem vindo " + response.data.nome + " :D");
     	  		}
     	  	  }, function errorCallback(response) {
-    	  		 console.log("Deu erro");
+    	  		 console.log("Ocorreu um erro");
     	  	  });
   	};
   	
@@ -79,7 +79,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  		$scope.autenticarCliente(idLogin,idSenha);
   	  		alert("Cliente cadastrado com sucesso");
   	  	  }, function errorCallback(response) {
-  	  		 console.log("Deu erro");
+  	  		 console.log("Ocorreu um erro");
   	  	  });
   	};
   	
@@ -90,7 +90,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
     	  	  data: serie
     	  	}).then(function successCallback(response) {
     	  	  }, function errorCallback(response) {
-    	  		 console.log("Deu erro no perfil");
+    	  		 console.log("Erro no perfil");
     	  	  });
   	}
   	
@@ -101,7 +101,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  	  data: serie
   	  	}).then(function successCallback(response) {
   	  	  }, function errorCallback(response) {
-  	  		 console.log("Deu erro na watchlist");
+  	  		 console.log("Erro na watchlist");
   	  	  });
 
   	}
@@ -125,7 +125,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  		  + $scope.userLogado.id + "/" + serie.imdbID,
   	  	}).then(function successCallback(response) {
   	  	  }, function errorCallback(response) {
-  	  		 console.log("Deu erro na remocao do perfil");
+  	  		 console.log("Erro na remocao da watchlist");
   	  	  });
 
   	}
@@ -148,6 +148,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 			if(contains($scope.watchlist,nomeserie) == -1){
 				$scope.watchlist.push(nomeserie);
 				$scope.salvarNaWatchList(nomeserie);
+				
 			}else{
 				alert("Essa série já esta na sua Watchlist!");
 			};
