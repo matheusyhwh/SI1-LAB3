@@ -148,7 +148,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 			if(contains($scope.watchlist,nomeserie) == -1){
 				$scope.watchlist.push(nomeserie);
 				$scope.salvarNaWatchList(nomeserie);
-				
+				alert("Série adicioanada em sua watchlist.");
 			}else{
 				alert("Essa série já esta na sua Watchlist!");
 			};
