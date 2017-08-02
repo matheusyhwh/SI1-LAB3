@@ -1,4 +1,4 @@
-package ctrlseries.ws.controller;
+package ctrlseries.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ctrlseries.ws.model.User;
-import ctrlseries.ws.model.Serie;
-import ctrlseries.ws.service.UserService;
-import ctrlseries.ws.service.SerieService;
+import ctrlseries.objects.Serie;
+import ctrlseries.objects.User;
+import ctrlseries.services.SerieService;
+import ctrlseries.services.UserService;
 
 @RestController
 @RequestMapping("/cliente/")

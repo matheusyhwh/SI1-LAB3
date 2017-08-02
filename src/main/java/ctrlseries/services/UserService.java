@@ -1,12 +1,12 @@
-package ctrlseries.ws.service;
+package ctrlseries.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ctrlseries.ws.model.User;
-import ctrlseries.ws.repository.UserRepository;
+import ctrlseries.objects.User;
+import ctrlseries.repositories.UserRepository;
 
 @Service
 public class UserService {

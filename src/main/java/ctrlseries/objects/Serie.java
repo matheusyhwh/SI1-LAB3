@@ -1,4 +1,4 @@
-package ctrlseries.ws.model;
+package ctrlseries.objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

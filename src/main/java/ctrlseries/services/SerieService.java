@@ -1,11 +1,11 @@
-package ctrlseries.ws.service;
+package ctrlseries.services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ctrlseries.ws.model.Serie;
-import ctrlseries.ws.repository.SerieRepository;
+import ctrlseries.objects.Serie;
+import ctrlseries.repositories.SerieRepository;
 
 @Service
 public class SerieService {
