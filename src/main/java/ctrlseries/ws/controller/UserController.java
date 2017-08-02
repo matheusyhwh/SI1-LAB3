@@ -14,7 +14,7 @@ import ctrlseries.ws.model.Cliente;
 import ctrlseries.ws.service.ClienteService;
 
 @RestController
-public class ClientController {
+public class UserController {
 
 	@Autowired
 	ClienteService clienteService;
