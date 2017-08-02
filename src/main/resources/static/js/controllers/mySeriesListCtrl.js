@@ -68,7 +68,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 	$scope.autenticarCliente = function(idLogin,idSenha){
   		$http({
     	  	  method: 'POST',
-    	  	  url: 'https://suaserie.herokuapp.com/clientes/autenticar',
+    	  	  url: 'https://ctrlseries.herokuapp.com/clientes/autenticar',
     	  	  data: { login : idLogin , password : idSenha}	
     	  	}).then(function successCallback(response) {
     	  		if(response.data.nome == null){
@@ -86,7 +86,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	$scope.cadastraCliente = function(idNome,idLogin,idSenha){
   		$http({
   	  	  method: 'POST',
-  	  	  url: 'https://suaserie.herokuapp.com/clientes',
+  	  	  url: 'https://ctrlseries.herokuapp.com/clientes',
   	  	  data: { nome : idNome, login : idLogin , password : idSenha}	
   	  	}).then(function successCallback(response) {
   	  		$scope.autenticarCliente(idLogin,idSenha);
@@ -99,7 +99,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	$scope.salvarNoPerfil = function(serie){
   		$http({
     	  	  method: 'POST',
-    	  	  url: 'https://suaserie.herokuapp.com/cliente/perfil/' + $scope.userLogado.id,
+    	  	  url: 'https://ctrlseries.herokuapp.com/cliente/perfil/' + $scope.userLogado.id,
     	  	  data: serie
     	  	}).then(function successCallback(response) {
     	  	  }, function errorCallback(response) {
@@ -110,7 +110,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	$scope.salvarNaWatchList = function(serie){
   		$http({
   	  	  method: 'POST',
-  	  	  url: 'https://suaserie.herokuapp.com/cliente/watchlist/' + $scope.userLogado.id,
+  	  	  url: 'https://ctrlseries.herokuapp.com/cliente/watchlist/' + $scope.userLogado.id,
   	  	  data: serie
   	  	}).then(function successCallback(response) {
   	  	  }, function errorCallback(response) {
@@ -122,7 +122,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	$scope.removerDoPerfil = function(serie){
   		$http({
   	  	  method: 'DELETE',
-  	  	  url: 'https://suaserie.herokuapp.com/cliente/removerPerfil/' 
+  	  	  url: 'https://ctrlseries.herokuapp.com/cliente/removerPerfil/' 
   	  		  + $scope.userLogado.id + "/" + serie.imdbID,
   	  	}).then(function successCallback(response) {
   	  	  }, function errorCallback(response) {
@@ -134,7 +134,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	$scope.removerDaWatchlist = function(serie){
   		$http({
   	  	  method: 'DELETE',
-  	  	  url: 'https://suaserie.herokuapp.com/cliente/removerWatchList/' 
+  	  	  url: 'https://ctrlseries.herokuapp.com/cliente/removerWatchList/' 
   	  		  + $scope.userLogado.id + "/" + serie.imdbID,
   	  	}).then(function successCallback(response) {
   	  	  }, function errorCallback(response) {
