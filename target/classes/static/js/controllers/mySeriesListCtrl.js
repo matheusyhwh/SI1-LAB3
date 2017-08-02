@@ -5,8 +5,9 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 	$scope.userLogado;
 	$scope.mySeries = [];
 	$scope.watchlist = [];
-
-	//requisicoes na API do IMDB
+	
+	
+	//IMDB
 	
 	$scope.getSeries = function(nome){
 		var promise = seriesAPI.getSeriesAPI(nome).then(function(response){
@@ -49,7 +50,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 		
 	};
 	
-	//API REST - Requisicoes
+	//REST
 	
 	$scope.autenticarCliente = function(idLogin,idSenha){
   		$http({
@@ -99,6 +100,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   	  	  url: 'https://ctrlseries.herokuapp.com/cliente/watchlist/' + $scope.userLogado.id,
   	  	  data: serie
   	  	}).then(function successCallback(response) {
+  	  		alert("Serie salva na sua watchlist");
   	  	  }, function errorCallback(response) {
   	  		 console.log("Deu erro na watchlist");
   	  	  });
