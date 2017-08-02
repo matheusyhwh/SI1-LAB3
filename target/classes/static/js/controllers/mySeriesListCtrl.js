@@ -36,6 +36,7 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 				serieadd.plot = descricao;
      			$scope.mySeries.push(serieadd);
      			$scope.salvarNoPerfil(serieadd);
+     			alert("Série adicionada no seu perfil");
      		}).catch(function(error){
      			console.log(error);
      		});
@@ -63,7 +64,6 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
     	  		}else{
     	  			$scope.userLogado = response.data;
     	  			$scope.fillSeries();
-    	  			alert("Bem vindo " + response.data.nome + " :D");
     	  		}
     	  	  }, function errorCallback(response) {
     	  		 console.log("Ocorreu um erro");
