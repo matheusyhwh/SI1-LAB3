@@ -1,0 +1,151 @@
+* {
+ font-size: 100%;
+ font-family: Lucida Console;
+}
+
+.form-control{
+	
+	margin-bottom: 5px;
+}
+
+.container{
+	margin-top: 3px;
+}
+
+.titulo{
+	font-size: 16px;
+}
+
+.searchButton{
+	float: right;
+	
+}
+
+.searchBox{
+	margin-right: 4px;
+}
+
+.color:hover{
+	background:#53a7ea;
+}
+
+.applogo{
+	padding-right: 10px;
+}
+
+.searchicon{
+	width: 18px;
+}
+
+.ptsans{
+	font-family: 'PT Sans', sans-serif;
+}
+
+.corpo{
+
+	background-color: #454545;
+    background-image: url("background-main.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+
+}
+
+
+#home {
+  margin-left:auto;
+  margin-right:auto;
+  width: 75%;
+}
+
+#watchlist{
+  margin-left:auto;
+  margin-right:auto;
+  width: 75%;
+}
+
+#minhasSeries{
+  margin-left:auto;
+  margin-right:auto;
+  width: 75%;
+}
+
+
+
+#titulo{
+  font-family: "Lucida Console";
+  src: url('fonts/lucidaConsole.ttf');
+  font-size: 50px;
+  text-align: center;
+  color: #111;
+
+}
+
+#subtitulo {
+	color: #aaa;
+}
+
+#thumbsize{
+    width: 245px;
+    height: 368px;
+    text-align: center;
+    
+}
+
+
+#sizeThumbnail{
+ 
+  width: 245px;
+  height: auto;
+  background-color: #2F333D; border-color: #21252B;
+  align-content: center;
+}
+
+#tamanhoImagem{
+  width: 235px;
+  height: 340px;
+}
+
+#imagesize{
+    width: 235px;
+    height: 358px;
+    
+}
+
+#infoicon{
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#entrarCadastrar{
+	padding-top: 7px;
+	padding-left: 5px;
+	
+}
+
+.naoencontrou{
+	text-align: center;
+	color: white;
+}
+
+.sinopse{
+	margin-left: -40px;
+}
+
+.alinhacentro{
+	text-align: center;
+}
+
+.info{
+	margin-left: -40px;
+}
+
+.infoicons{
+	float: left;
+	margin-right: 5px;
+}
+
+.input{
+	margin-top: -8px;
+	width: 35%;
+	float: right;
+}
