@@ -15,7 +15,6 @@ public class UserService {
 	UserRepository userRepository;
 
 	public User cadastrar(User user) {
-		
 		return userRepository.save(user);			
 	}
 	
@@ -39,9 +38,9 @@ public class UserService {
 	}
 	
 	public User autenticaUser(User user) {
-		User comparado = getClientePorEmail(user);
-		if(comparado.getLogin() != null && comparado.getPassword().equals(user.getPassword())){
-			return comparado;
+		User another = getClientePorEmail(user);
+		if(another.getLogin() != null && another.getPassword().equals(user.getPassword())){
+			return another;
 		}
 		return new User();
 	}

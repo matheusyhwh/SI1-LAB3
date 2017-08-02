@@ -5,20 +5,6 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 	$scope.userLogado;
 	$scope.mySeries = [];
 	$scope.watchlist = [];
-	
-	//para resetar o modal
-	
-	$('#modalCadastro').on('hidden.bs.modal', function(){
-		$(this).find('form').trigger('reset');
-		$('#modalLogin').find('form').trigger('reset');
-
-		});
-	
-	$('#modalLogin').on('hidden.bs.modal', function(){
-		$(this).find('form').trigger('reset');
-		$('#modalCadastro').find('form').trigger('reset');
-
-		});
 
 	//requisicoes na API do IMDB
 	
@@ -242,6 +228,20 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
   		};
   		return retorno;
   	}
+  	
+  		//para resetar o modal
+	
+	$('#modalCadastro').on('hidden.bs.modal', function(){
+		$(this).find('form').trigger('reset');
+		$('#modalLogin').find('form').trigger('reset');
+
+		});
+	
+	$('#modalLogin').on('hidden.bs.modal', function(){
+		$(this).find('form').trigger('reset');
+		$('#modalCadastro').find('form').trigger('reset');
+
+		});
   	
 
 });
