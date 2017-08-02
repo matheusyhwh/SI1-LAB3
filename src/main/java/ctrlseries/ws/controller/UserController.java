@@ -10,30 +10,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ctrlseries.ws.model.Cliente;
-import ctrlseries.ws.service.ClienteService;
+import ctrlseries.ws.model.User;
+import ctrlseries.ws.service.UserService;
 
 @RestController
 public class UserController {
 
 	@Autowired
-	ClienteService clienteService;
+	UserService userService;
 
 	// End points
 
 	@RequestMapping(method = RequestMethod.POST, value = "/clientes", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente cliente) {
+	public ResponseEntity<User> cadastrarCliente(@RequestBody User user) {
 		
-		Cliente clienteCadastrado = clienteService.cadastrar(cliente);
+		User clienteCadastrado = userService.cadastrar(user);
 		return new ResponseEntity<>(clienteCadastrado, HttpStatus.CREATED);			
 
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/clientes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Cliente> getClientById(@PathVariable Long id) {
+	public ResponseEntity<User> getClientById(@PathVariable Long id) {
 		
-		if(clienteService.getClientesPorId(id).getNome() != null) {
-			return new ResponseEntity<>(clienteService.getClientesPorId(id), HttpStatus.OK);
+		if(userService.getClientesPorId(id).getNome() != null) {
+			return new ResponseEntity<>(userService.getClientesPorId(id), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 

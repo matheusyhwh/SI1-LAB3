@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ctrlseries.ws.model.Cliente;
-import ctrlseries.ws.service.ClienteService;
+import ctrlseries.ws.model.User;
+import ctrlseries.ws.service.UserService;
 
 @RestController
 public class LoginController {
 	
 	@Autowired
-	ClienteService clienteService;
+	UserService userService;
 
 	@RequestMapping(method = RequestMethod.POST, value = "/clientes/autenticar", 
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Cliente> autenticarCliente(@RequestBody Cliente cliente) {
+	public ResponseEntity<User> autenticarCliente(@RequestBody User user) {
 		
-		return new ResponseEntity<>(clienteService.autenticaUser(cliente), HttpStatus.OK);
+		return new ResponseEntity<>(userService.autenticaUser(user), HttpStatus.OK);
 
 	}
 	

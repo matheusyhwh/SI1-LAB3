@@ -3,9 +3,9 @@ package ctrlseries.ws.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import ctrlseries.ws.model.Serie;
+import ctrlseries.ws.model.User;
 
 @Repository
-public interface SerieRepository extends JpaRepository<Serie, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }

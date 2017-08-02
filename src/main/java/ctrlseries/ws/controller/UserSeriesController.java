@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ctrlseries.ws.model.Cliente;
+import ctrlseries.ws.model.User;
 import ctrlseries.ws.model.Serie;
-import ctrlseries.ws.service.ClienteService;
+import ctrlseries.ws.service.UserService;
 import ctrlseries.ws.service.SerieService;
 
 @RestController
 @RequestMapping("/cliente/")
-public class ClienteSeriesController {
+public class UserSeriesController {
 	
 	@Autowired
-	ClienteService clienteService;
+	UserService userService;
 	@Autowired
 	SerieService serieService;
 	
@@ -31,9 +31,9 @@ public class ClienteSeriesController {
 	public ResponseEntity<Serie> cadastrarSerieNoPerfil(@RequestBody Serie serie, @PathVariable("id") Long id) {
 		
 		Serie cadastrada = serieService.cadastrarSerie(serie);
-		Cliente clienteEncontrado = clienteService.getClientesPorId(id);
+		User clienteEncontrado = userService.getClientesPorId(id);
 		clienteEncontrado.addNoPerfil(cadastrada);
-		clienteService.cadastrar(clienteEncontrado);
+		userService.cadastrar(clienteEncontrado);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 
 	}
@@ -43,9 +43,9 @@ public class ClienteSeriesController {
 	public ResponseEntity<Serie> cadastrarSerieNaWatchlist(@RequestBody Serie serie, @PathVariable("id") Long id) {
 		
 		Serie cadastrada = serieService.cadastrarSerie(serie);
-		Cliente clienteEncontrado = clienteService.getClientesPorId(id);
+		User clienteEncontrado = userService.getClientesPorId(id);
 		clienteEncontrado.addWatchList(cadastrada);
-		clienteService.cadastrar(clienteEncontrado);
+		userService.cadastrar(clienteEncontrado);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 
 	}
@@ -54,9 +54,9 @@ public class ClienteSeriesController {
 	@RequestMapping(method = RequestMethod.DELETE, value = "removerPerfil/{id}/{id2}")
 	public ResponseEntity<String> deletarSeriePerfil(@PathVariable Long id, @PathVariable String id2) {
 		
-		Cliente encontrado = clienteService.getClientesPorId(id);
+		User encontrado = userService.getClientesPorId(id);
 		encontrado.removerSeriePerfilID(id2);
-		clienteService.cadastrar(encontrado);
+		userService.cadastrar(encontrado);
 		return new ResponseEntity<>("Serie removida com sucesso", HttpStatus.OK);
 		
 	}
@@ -65,9 +65,9 @@ public class ClienteSeriesController {
 	@RequestMapping(method = RequestMethod.DELETE, value = "removerWatchList/{id}/{id2}")
 	public ResponseEntity<String> deletarSerieWatchlist(@PathVariable Long id, @PathVariable String id2) {
 		
-		Cliente encontrado = clienteService.getClientesPorId(id);
+		User encontrado = userService.getClientesPorId(id);
 		encontrado.removerSerieWatchlistID(id2);
-		clienteService.cadastrar(encontrado);
+		userService.cadastrar(encontrado);
 		return new ResponseEntity<>("Serie removida com sucesso", HttpStatus.OK);
 		
 	}
