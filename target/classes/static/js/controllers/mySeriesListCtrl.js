@@ -244,6 +244,15 @@ angular.module("mySeriesList").controller("mySeriesListCtrl",function($scope,$ht
 		$('#modalCadastro').find('form').trigger('reset');
 
 		});
-  	
+				
+    //verificar se serie nao possui poster
+    $scope.hasNoThumbnail = function(serie){
+     if(serie.Poster == 'N/A') {
+      return true;
+     }else{
+      return false;
+     } 
+ 
+ }  	
 
 });
